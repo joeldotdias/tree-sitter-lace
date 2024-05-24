@@ -1,0 +1,19 @@
+{
+  "name": "tree-sitter-lace",
+  "version": "0.1.0",
+  "description": "Lace grammar for tree-sitter",
+  "main": "index.js",
+  "scripts": {
+    "test": "tree-sitter test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joeldotdias/tree-sitter-lace.git"
+  },
+  "author": "Joel Dias",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joeldotdias/tree-sitter-lace/issues"
+  },
+  "homepage": "https://github.com/joeldotdias/tree-sitter-lace#readme"
+}
