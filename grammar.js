@@ -132,7 +132,7 @@ module.exports = grammar({
     hashmap: ($) =>
       seq("{", optional(seq($.pair, repeat(seq(",", $.pair)))), "}"),
 
-    identifier: () => /[a-zA-Z]+/,
+    identifier: () => /[a-zA-Z_][a-zA-Z_0-9_]*/,
     integer: () => /\d+/,
     string: () => seq('"', repeat(/[^\"]/), '"'),
     char: () => seq("'", /[^\']/, "'"),
