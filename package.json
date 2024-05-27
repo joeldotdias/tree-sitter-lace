@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "description": "Lace grammar for tree-sitter",
   "main": "index.js",
+  "types": "bindings/node",
   "scripts": {
-    "test": "tree-sitter test"
+    "test": "tree-sitter test",
+    "install": "node-gyp-build",
+    "prebuildify": "prebuildify --napi --strip"
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,35 @@
   "bugs": {
     "url": "https://github.com/joeldotdias/tree-sitter-lace/issues"
   },
-  "homepage": "https://github.com/joeldotdias/tree-sitter-lace#readme"
+  "homepage": "https://github.com/joeldotdias/tree-sitter-lace#readme",
+  "dependencies": {
+    "node-addon-api": "^7.1.0",
+    "node-gyp-build": "^4.8.0"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.21.0"
+  },
+  "peerDependenciesMeta": {
+    "tree_sitter": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "prebuildify": "^6.0.0",
+    "tree-sitter-cli": "^0.22.6"
+  },
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**"
+  ],
+  "tree-sitter": [
+    {
+      "scope": "source.lace",
+      "injection-regex": "^lace$"
+    }
+  ]
 }
