@@ -17,22 +17,18 @@
  "}"
 ]@punctuation.bracket
 
-; delimeters
-[
- "::"
- ":"
- "."
- ","
- ";"] @punctuation.delimiter
 
 ; keywords
 [
   "let"
   "fn"
-  "if"
-  "else"
   "return"
 ]@keyword
+
+[
+ "if"
+ "else"
+ ] @keyword.conditional
 
 ; operators
 [
@@ -49,5 +45,16 @@
  "/"
  "%"
 ] @operator
+((call
+  function: (identifier) @function.builtin)
+  (#match? @function.builtin "^write|len|first|last|strip_start|append"))
 
-(line_comment) @comment @spell
+(call function: (identifier) @function.call)
+
+; [
+ ; "&&"
+;  "||"
+;  "!"
+; ] @keyword.operator
+
+(line_comment) @comment
